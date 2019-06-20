@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:converters="clr-namespace:EssentialsMSPTechDays.Converters"
+             Title="Battery - Xamarin.Essentials"
+             x:Class="EssentialsMSPTechDays.Views.BatteryView">
+    
+    <ContentPage.Resources>
+        <converters:PercentageConverter x:Key="percentageConverter"/>
+        <converters:BatteryPowerSourceToStringConverter x:Key="batterySourceConverter"/>
+        <converters:BatteryStateToStringConverter x:Key="batteryStateConverter"/>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" Padding="5" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Level: " 
+                   Style="{StaticResource LabelTitleStyle}"/>
+            <Label Grid.Row="0" Grid.Column="1" 
+                   Text="{Binding Level, Converter={StaticResource percentageConverter}}" 
+                   Style="{StaticResource LabelDetailStyle}" />
+
+            <Label Grid.Row="1" Grid.Column="0" Text="State: " 
+                   Style="{StaticResource LabelTitleStyle}"/>
+            <Label Grid.Row="1" Grid.Column="1" 
+                   Text="{Binding State, Converter={StaticResource batteryStateConverter}}" 
+                   Style="{StaticResource LabelDetailStyle}"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Power Source: " 
+                   Style="{StaticResource LabelTitleStyle}"/>
+            <Label Grid.Row="2" Grid.Column="1" 
+                   Text="{Binding Source, Converter={StaticResource batterySourceConverter}}" 
+                   Style="{StaticResource LabelDetailStyle}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

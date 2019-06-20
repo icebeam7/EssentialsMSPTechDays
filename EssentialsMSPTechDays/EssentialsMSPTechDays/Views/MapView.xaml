@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:converters="clr-namespace:EssentialsMSPTechDays.Converters"
+             Title="Map - Xamarin.Essentials"
+             x:Class="EssentialsMSPTechDays.Views.MapView">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" Padding="5" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Latitude: " 
+                   Style="{StaticResource LabelTitleStyle}"/>
+            <Entry Grid.Row="0" Grid.Column="1" 
+                   Text="{Binding Latitude, Mode=TwoWay}"  />
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Longitude: " 
+                   Style="{StaticResource LabelTitleStyle}"/>
+            <Entry Grid.Row="1" Grid.Column="1" 
+                   Text="{Binding Longitude, Mode=TwoWay}" />
+
+            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
+                        Text="Show Map" Command="{Binding ShowMapCommand}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

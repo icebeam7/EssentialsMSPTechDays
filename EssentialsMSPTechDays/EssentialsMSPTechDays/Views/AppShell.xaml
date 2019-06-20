@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:EssentialsMSPTechDays.Views"
+       x:Class="EssentialsMSPTechDays.Views.AppShell">
+
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="Black"
+                  HeightRequest="200">
+            <Image Aspect="AspectFill" 
+                       Source="essentials.png" 
+                       Opacity="0.6" />
+            <Label Text="Essentials" 
+                       TextColor="Black" 
+                       FontAttributes="Bold" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+    
+    <FlyoutItem Title="Essentials"
+                FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Title="Messages" Icon="messages.png">
+            <ShellContent Title="SMS"
+                          Icon="sms.png">
+                <views:SMSView />
+            </ShellContent>
+            <ShellContent Title="E-mail"
+                          Icon="email.png">
+                <views:EmailView />
+            </ShellContent>
+        </Tab>
+        <ShellContent Title="Battery"
+                      Icon="battery.png">
+            <views:BatteryView />
+        </ShellContent>
+        <ShellContent Title="Map"
+                      Icon="map.png">
+            <views:MapView />
+        </ShellContent>
+        <ShellContent Title="Network"
+                      Icon="network.png">
+            <views:NetworkView />
+        </ShellContent>
+        <ShellContent Title="Text-to-Speech"
+                      Icon="tts.png">
+            <views:TextToSpeechView />
+        </ShellContent>
+    </FlyoutItem>
+
+</Shell>
